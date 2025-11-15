@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--main-padding);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    bottom: 0;
+    background-image: linear-gradient(
+        var(--color-border) 0.0625em,
+        transparent 0.0625em
+      ),
+      linear-gradient(90deg, var(--color-border) 0.0625em, transparent 0.0625em);
+    background-size: 2em 2em;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+.decoration {
+  position: absolute;
+  font-size: 15em;
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+}
+
+.decoration-1 {
+  top: 10%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decoration-2 {
+  bottom: 10%;
+  right: 10%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2em) rotate(5deg);
+  }
+}

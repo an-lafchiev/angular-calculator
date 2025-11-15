@@ -4,8 +4,15 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <section class="main">
+      <div class="decoration decoration-1">%</div>
+      <div class="decoration decoration-2">+</div>
+      <ng-content></ng-content>
+      <router-outlet />
+    </section>
+  `,
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'angular-calculator';

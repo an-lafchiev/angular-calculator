@@ -1,0 +1,20 @@
+<section class="calculator-page" tabindex="0" (keydown)="handleKeyboardInput($event)">
+    <div class="calculator-container">
+        <div class="calculator-display">
+            <div class="display-value">{{ display() }}</div>
+        </div>
+
+        <div class="calculator-buttons">
+            @for (row of buttonRows; track $index) {
+            <div class="button-row">
+                @for (button of row; track button.value) {
+                <button [class]="'calc-btn btn-' + button.type" [class.active]="activeKey() === button.value"
+                    (click)="handleButtonClick(button)">
+                    {{ button.value }}
+                </button>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</section>
